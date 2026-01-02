@@ -10,7 +10,7 @@ require 'DBConfig.php';
 
 $db = DBConfig::getConnection();
 
-$stmt = $db->prepare("SELECT * FROM users");
+$stmt = $db->prepare("SELECT * FROM skills");
 $stmt->execute();
 $users = $stmt->fetchAll();
 
