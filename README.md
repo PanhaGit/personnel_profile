@@ -12,9 +12,9 @@ $db = DBConfig::getConnection();
 
 $stmt = $db->prepare("SELECT * FROM skills");
 $stmt->execute();
-$users = $stmt->fetchAll();
+$skills = $stmt->fetchAll();
 
-print_r($users);
+print_r($skills);
 ```
 ```
 CREATE DATABASE portfolio
