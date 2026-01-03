@@ -1,5 +1,15 @@
 ---
 
+# Go to view dashboard
+
+```php
+http://localhost/personnel_profile/template/view/dashboard/index.php?page=dashboard
+```
+if you localhost with post 
+```
+http://localhost:{port_number}/personnel_profile/template/view/dashboard/index.php?page=dashboard
+```
+
 ## 🔌 How to Use DBConfig
 
 In any PHP file, include the DBConfig class and call `getConnection()`.
