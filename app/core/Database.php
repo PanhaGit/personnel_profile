@@ -1,6 +1,6 @@
 <?php
 
-class DBConfig
+class Database
 {
     private static $conn = null;
 
@@ -12,8 +12,7 @@ class DBConfig
     {
         if (self::$conn === null) {
             try {
-                // this it load config
-                $config = require __DIR__ . '/../config/app.php';
+                $config = require __DIR__ . '/../../public/config/app.php';
 
                 $dsn = "mysql:host={$config['DB_HOST']};dbname={$config['DB_NAME']};charset=utf8mb4";
 
@@ -27,8 +26,9 @@ class DBConfig
                         PDO::ATTR_EMULATE_PREPARES => false
                     ]
                 );
+
             } catch (PDOException $e) {
-                die("database connection failed: " . $e->getMessage());
+                die("Database connection failed: " . $e->getMessage());
             }
         }
 
