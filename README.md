@@ -29,9 +29,11 @@ function dd($var)
 ### when we call dd()
 
 include_once **DIR** . "/Helper.php"
-use it
+
+```
 $data = $this->skillsService->getAllSkills();
 dd($data);
+```
 
 ## 🔌 How to Use DBConfig
 
