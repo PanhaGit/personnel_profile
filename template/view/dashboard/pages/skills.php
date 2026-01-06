@@ -195,7 +195,7 @@ $categories = $categoryController->listCategories();
         });
     });
 
-    // Submit form (add/update)
+    // Submit form add and update
     skillForm.addEventListener("submit", function(e) {
         e.preventDefault();
         const id = document.getElementById("skillId").value;
