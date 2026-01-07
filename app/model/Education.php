@@ -10,10 +10,10 @@ class Education extends Database
     public function getAllAsTable()
     {
         $conn = Database::getConnection();
-        $sql = "SELECT * FROM education ORDER BY s.id DESC";
+        $sql = "SELECT * FROM education ORDER BY id DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
     }
 
     public function create($university_name,$degree,$field_of_study,$start_year,$end_year,$gpa,$year_of_study,$status)

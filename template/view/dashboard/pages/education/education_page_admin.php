@@ -1,5 +1,9 @@
 <?php
-
+//include __DIR__ . '/../../../../../Helper.php';
+require_once __DIR__ . '/../../../../../app/controllers/EducationController.php';
+$controller = new EducationController();
+$education = $controller->listAllAsTable();
+//dd($controller);
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -121,45 +125,34 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>The University of Cambodia</td>
-                    <td>Bachelor of Science</td>
-                    <td>Information Technology</td>
-                    <td>2020</td>
-                    <td>2024</td>
-                    <td>3.70</td>
-                    <td>Final Year (4th Year)</td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td>
-                        <button class="btn btn-sm btn-primary">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn btn-sm btn-danger">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
+                <?php if (empty($education)): ?>
+                    <tr>
+                        <td colspan="10">No Data</td>
+                    </tr>
+                <?php else: ?>
+                <?php endif;?>
 
-                <tr>
-                    <td>2</td>
-                    <td>Royal University of Phnom Penh</td>
-                    <td>Associate Degree</td>
-                    <td>Computer Science</td>
-                    <td>2018</td>
-                    <td>2020</td>
-                    <td>3.45</td>
-                    <td>Completed</td>
-                    <td><span class="badge bg-secondary">Inactive</span></td>
-                    <td>
-                        <button class="btn btn-sm btn-primary">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn btn-sm btn-danger">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
+                <?php foreach ($education as $index=>$edu): ?>
+                    <tr>
+                        <td><?= $index+1 ?></td>
+                        <td>The University of Cambodia</td>
+                        <td>Bachelor of Science</td>
+                        <td>Information Technology</td>
+                        <td>2020</td>
+                        <td>2024</td>
+                        <td>3.70</td>
+                        <td>Final Year (4th Year)</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
                 </tbody>
 
             </table>
