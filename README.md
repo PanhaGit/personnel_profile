@@ -58,6 +58,6 @@ CREATE DATABASE portfolio
 Can change variable in file
 ```
 
-<a href="https://github.com/PanhaGit/personnel_profile/blob/master/config/app.php">Click this if want to change variable connection to database MYSQL</a>
+<a href="https://github.com/PanhaGit/personnel_profile/blob/master/app/core/Database.php">Click this if want to change variable connection to database MYSQL</a>
 
 ### USE MYSQL PDO
