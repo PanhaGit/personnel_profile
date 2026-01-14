@@ -65,10 +65,10 @@
             <h3 style="color: var(--text-dark); font-size: 1.5rem; margin-bottom: 20px;">
                 Send Me a Message
             </h3>
-            <form class="contact-form" action="send_message.php" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
+            <form class="contact-form" id="form" method="POST">
+                <input type="text" name="name" placeholder="Your Name" id="name" required>
+                <input type="email" name="email" placeholder="Your Email" id="email" required>
+                <textarea name="message" placeholder="Your Message" id="message" required></textarea>
                 <button type="submit">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
@@ -76,3 +76,31 @@
         </div>
     </div>
 </section>
+<script>
+    const form = document.getElementById("form");
+    const path = "/personnel_profile/public/ajax/contact/";
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // Prevent page reload
+
+        const formData = new FormData(form);
+
+        try {
+            const res = await fetch(path + "contact.store.php", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await res.json();
+
+            if (res.ok && data.status === "success") {
+                alert(data.message); // or show a nice success message on page
+                form.reset(); // clear the form
+            } else {
+                alert(data.message || "Failed to send message");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong!");
+        }
+    });
+</script>

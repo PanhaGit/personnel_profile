@@ -44,9 +44,9 @@ $sidebarMenu = [
         ]
     ],
     [
-        'title' => 'Experience',
+        'title' => 'Contact',
         'icon' => 'bi-person-badge',
-        'page' => 'experience',
+        'page' => 'contact',
     ],
 ];
 ?>

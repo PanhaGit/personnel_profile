@@ -3,11 +3,7 @@ require_once __DIR__ . '/../../../../../app/controllers/ProjectLinkController.ph
 $projectLinkController = new ProjectLinkController();
 
 $projectLinks = $projectLinkController->listProjectLinks();
-//$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-//$perPage = 5;
 
-//$pagination = $projectLinkController->listProjectLinksPagination($page, $perPage);
-//$projectLinks = $pagination['data'];
 ?>
 
 <div class="layout-content">
@@ -49,12 +45,14 @@ $projectLinks = $projectLinkController->listProjectLinks();
 
                         <div class="mb-3">
                             <label class="form-label">Icon class</label>
-                            <input type="text" class="form-control" name="icon_class" id="icon_class" required placeholder="example: fab fa-github fa-lg">
+                            <input type="text" class="form-control" name="icon_class" id="icon_class" required
+                                placeholder="example: fab fa-github fa-lg">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">URL</label>
-                            <textarea name="source_code_url" id="source_code_url" class="form-control" placeholder="https://github.com/PanhaGit/personnel_profile" required></textarea>
+                            <textarea name="source_code_url" id="source_code_url" class="form-control"
+                                placeholder="https://github.com/PanhaGit/personnel_profile" required></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -77,59 +75,61 @@ $projectLinks = $projectLinkController->listProjectLinks();
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped align-middle text-center rounded">
                 <thead class="table-active">
-                <tr>
-                    <th>NO</th>
-                    <th>Name</th>
-                    <th>ICON</th>
-                    <th>URL</th>
-                    <th>Status</th>
-                    <th width="150">Action</th>
-                </tr>
+                    <tr>
+                        <th>NO</th>
+                        <th>Name</th>
+                        <th>ICON</th>
+                        <th>URL</th>
+                        <th>Status</th>
+                        <th width="150">Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <?php if (empty($projectLinks)): ?>
-                    <tr><td colspan="6">No Data</td></tr>
-                <?php else: ?>
-                    <?php foreach ($projectLinks as $index => $row): ?>
-                        <tr data-id="<?= $row['id'] ?>">
-                            <td><?= $index + 1 ?></td>
-                            <td><?= $row["link_type"] ?></td>
-                            <td><i class="<?= $row["icon_class"] ?>"></i></td>
-                            <td>
-                                <a href="<?= $row["source_code_url"] ?>" target="_blank" title="<?= $row["source_code_url"] ?>">
-                                    Project Link
-                                </a>
-                            </td>
-                            <td>
-                                <span class="badge <?= $row["status"] == 1 ? "bg-success" : "bg-danger" ?>">
-                                    <?= $row["status"] == 1 ? "Active" : "Inactive" ?>
-                                </span>
-                            </td>
-                            <td>
-                                <!-- Edit Button -->
-                                <button class="btn btn-sm btn-primary me-1 btnEdit" title="Edit Project"
-                                >
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <!-- Delete Button -->
-                                <button class="btn btn-sm btn-danger btnDelete" title="Delete Project">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
+                    <?php if (empty($projectLinks)): ?>
+                        <tr>
+                            <td colspan="6">No Data</td>
                         </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php else: ?>
+                        <?php foreach ($projectLinks as $index => $row): ?>
+                            <tr data-id="<?= $row['id'] ?>">
+                                <td><?= $index + 1 ?></td>
+                                <td><?= $row["link_type"] ?></td>
+                                <td><i class="<?= $row["icon_class"] ?>"></i></td>
+                                <td>
+                                    <a href="<?= $row["source_code_url"] ?>" target="_blank"
+                                        title="<?= $row["source_code_url"] ?>">
+                                        Project Link
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="badge <?= $row["status"] == 1 ? "bg-success" : "bg-danger" ?>">
+                                        <?= $row["status"] == 1 ? "Active" : "Inactive" ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <!-- Edit Button -->
+                                    <button class="btn btn-sm btn-primary me-1 btnEdit" title="Edit Project">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <!-- Delete Button -->
+                                    <button class="btn btn-sm btn-danger btnDelete" title="Delete Project">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
-<!--            <nav>-->
-<!--                <ul class="pagination justify-content-center mt-3">-->
-<!--                    --><?php //for($i=1; $i<=$pagination['totalPages']; $i++): ?>
-<!--                        <li class="page-item --><?php //= $i==$pagination['currentPage']?'active':'' ?><!--">-->
-<!--                            <a class="page-link" href="?page=--><?php //= $i ?><!--">--><?php //= $i ?><!--</a>-->
-<!--                        </li>-->
-<!--                    --><?php //endfor; ?>
-<!--                </ul>-->
-<!--            </nav>-->
+            <!--            <nav>-->
+            <!--                <ul class="pagination justify-content-center mt-3">-->
+            <!--                    --><?php //for($i=1; $i<=$pagination['totalPages']; $i++): ?>
+            <!--                        <li class="page-item --><?php //= $i==$pagination['currentPage']?'active':'' ?><!--">-->
+            <!--                            <a class="page-link" href="?page=--><?php //= $i ?><!--">--><?php //= $i ?><!--</a>-->
+            <!--                        </li>-->
+            <!--                    --><?php //endfor; ?>
+            <!--                </ul>-->
+            <!--            </nav>-->
         </div>
     </main>
 </div>
@@ -215,7 +215,7 @@ $projectLinks = $projectLinkController->listProjectLinks();
         console.log(url)
         fetch(url, { method: "POST", body: new FormData(this) })
 
-                .then(res => res.text())
+            .then(res => res.text())
             .then(data => {
                 console.log(data)
                 if (data.trim() === "success") {

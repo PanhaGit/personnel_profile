@@ -13,6 +13,7 @@ $pageMap = [
     'academic' => 'education/academic_page_admin.php',
     'clubs' => 'education/clubs_page_admin.php',
     'experience' => 'experience/experience_page_admin.php',
+    'contact' => 'contact/contact_page_admin.php',
 ];
 
 // Include layout
